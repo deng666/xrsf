@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/jquery.fullPage.css" />
+<link rel="stylesheet" href="css/lightbox.css">
+<style>
+*{margin: 0;padding: 0;}
+ul{ list-style: none;}
+a{text-decoration: none;}
+.fl:{float:left;}
+.fr{float:right;}
+.text-center{text-align:center;}
+.section{background-image:url(img/s1.jpg);background-size: cover;}
+.s2{ background-image: url(img/s2.jpg); }
+.s3{ background-image: url(img/s3.jpg); }
+.s4{ background-image: url(img/s4.jpg); }
+.s5{ background-image: url(img/s5.jpg); }
+.s6{ background-image: url(img/s6.jpg); }
+.s7{ background-image: url(img/s7.jpg); }
+.s8{ background-image: url(img/s8.jpg); }
+.s2 h3{ left:-200%; transition:all 1s; position: relative;}
+.top{height: 70px; z-index:20; position: fixed;width: 100%;overflow: hidden;top:0;left:0;}
+.logo{width:35%; background-color: #000;height:70px;}
+.logo img{height:60px;left:13%;top:5px;position: relative;}
+.topnav{height:108px;overflow:hidden;width:65%;float: left;background-color:#0c1f37;opacity: 0.8;}
+.topnav1{width:770px;height:102px;margin-left: 6%; position: fixed;overflow: hidden;}
+.topnav li{height:102px;line-height: 102px;font-size: 14px;margin-left:15px; float: left;width: 66px;}
+.topnav1 li a:hover{cursor:pointer;font-size:14px;line-height:70px; border-bottom:5px solid red;color:#ffffff;height:70px;text-align:center;background-color:#055846;}
+.topnav li a{font-size: 14px;color: #fff;text-align:center;height:108px;width: 66px;display: block;}
+.topnav .active a { color:red; }
+.topr{margin-right:6%;margin-top: 0.5%;}
+.topr .a1{color:#fff;font-size: 12px;}
+.topr .a2{color:#c09556;font-size: 12px;}
+.topr span{margin-left: 5px;margin-right: 5px;}
+.yuan{width: 90px;height: 70px;position: fixed;left:0;bottom: 0;z-index: 10;left:50%;text-align: center;}
+.yuan img:hover{transform:scale(1.1);}
+.s1 img{position: relative;left:920px;top:240px;}
+.s2 .img1{position: absolute; left:-600px; top:90px; transition:all 1s;}
+.pic{background-color:#0A0B0B;opacity: 0.8;border-radius: 5px;padding:7px;width: 240px;height:170px;position:absolute;bottom:-200px;right:250px;transition:all 1s;}
+.pic a{width: 100px;height: 70px;display: inline-block;overflow: hidden;margin: 4px 6px;box-shadow: 0 0 4px -1px #000;border: 3px solid white;}
+.pic a:hover{transform:scale(1.3);transition:all 1s;}
+.pic a img{width: 100%;height:100%;}
+.s3 .img2{position:relative; left:350px; top:470px; transition:all 1s;}
+.s3 .pic2{background-color:#0A0B0B;opacity: 0.8;border-radius: 5PX;padding: 7px;width:362px;height:170px;position: absolute;top:700px;left:300px;transition:all 1s;}
+.pic2 a{width: 100px;height:70px;display: inline-block;overflow: hidden;margin: 4px 6px;box-shadow: 0 0 4px -1px #000;border:3px solid white;}
+.pic2 a:hover{transform:scale(1.3);transition:all 1s;}
+.pic2 a img{width: 100%;height:100%;}
+.img3{position:absolute;left:-480px;top:70px;transition:all 1s;}
+.pic3{background-color:#0A0B0B;opacity: 0.8;border-radius: 5px;padding:7px;width: 240px;height:170px;position:relative;top:-20px;left:-250px;transition:all 1s;}
+.pic3 a{width: 100px;height: 70px;display: inline-block;overflow: hidden;margin: 4px 6px;box-shadow: 0 0 4px -1px #000;border: 3px solid white;}
+.pic3 a:hover{transform:scale(1.3);transition:all 1s;}
+.pic3 a img{width: 100%;height:100%;}
+.s5 .img5{position:absolute;right:-650px;bottom:120px;transition:all 1s;}
+.s5 .pic5{width:118px;height:172px;background-color:#0A0B0B;opacity: 0.8;border-radius: 5px;padding:7px; position:relative;left:-140px;top:140px;transition:all 1s;}
+.s5 .pic5 a{width:100px;height:70px;overflow: hidden;margin: 4px 6px;box-shadow: 0 0 4px -1px #000;border: 3px solid white;display: inline-block;}
+.pic5 a:hover{transform:scale(1.3);transition:all 1s;}
+.pic5 a img{width: 100%;height:100%;}
+
+.s6 .img6{position:absolute;left:-600px;top:120px;transition:all 1s;}
+.s6 .pic6{width:240px;height:170px;background-color:#0A0B0B;opacity: 0.8;border-radius: 5px;padding:7px; position:relative;left:0px;bottom:-150px;transition:all 1s;}
+.s6 .pic6 a{width:100px;height:70px;overflow: hidden;margin: 4px 6px;box-shadow: 0 0 4px -1px #000;border: 3px solid white;display: inline-block;}
+.pic6 a:hover{transform:scale(1.3);transition:all 1s;}
+.pic6 a img{width: 100%;height:100%;}
+.s7 .img7{position: absolute;top:95px;left:200px;position:relative;left:-400px;top:-40px;transition:all 1s;}
+.pic7{width: 800px;height:250px;background-color:#377860;position: relative;top:0px;left:400px;opacity: 0.8;position:relative;left:400px;top:600px;transition:all 1s;}
+.pic7 h2{padding-top: 45px;padding-left: 50px;color:#fff;font-size: 30px;}
+.last{width:295px;height:auto;position: absolute;top:170px;left:250px;line-height: 20px;background-color: #0A0B0B;opacity: 0.9;padding: 20px;border-radius: 7px;color:#e2b16a;position: absolute;top:170px;left:-350px;transition:all 1s;}
+.last .li1{margin-bottom: 5px;font-size: 16px;}
+.last .li2{font-size: 14px;}
+.img81{position: absolute;top:410px;left:300px;position: absolute;top:700px;left:300px;transition:all 1s;}
+.img82{position:relative;top:-320px;right:-840px;transition:all 1s;}
+.text p{margin-top:3px;color:#e2b16a;font-size: 14px;}
+.text{position: absolute;right:210px;bottom:110px;position: absolute;bottom:100px;right:-350px;transition:all 1s;}
+</style>
+</head>
+<body>
+	<div class="top clearfix">
+		<div class="logo fl">
+		<a href=""><img src="images/logo-1_03 (1).png"alt=""/></a>
+		</div>
+		<div class="topnav fl">
+		<div class="topnav1 clearfix">
+		<ul class=" text-center">
+			<li data-menuanchor="page1" class="active"><a href="#page1">首页</a></li>
+			<li data-menuanchor="page2"><a href="#page2">世外桃源</a></li>
+			<li data-menuanchor="page3"><a href="#page3">源生原味</a></li>
+			<li data-menuanchor="page4"><a href="#page4">星星作伴</a></li>
+			<li data-menuanchor="page5"><a href="#page5">创想意境</a></li>
+			<li data-menuanchor="page6"><a href="#page6">闲云圣景</a></li>
+			<li data-menuanchor="page7"><a href="#page7">活动</a></li>
+			<li data-menuanchor="page8"><a href="#page8">联系我们</a></li>
+		</ul>
+		</div>
+		<div class="topr fr">
+			<a href="" class="a1">中文</a>
+			<span>|</span>
+			<a href="" class="a2">ENGLISH</a>
+		</div>
+		</div>
+	</div>
+	<div class="yuan">
+		<a href="#page1"><img src="images/gd_03.png"  alt=""></a>
+	</div>
+
+		<div id="main">
+			<div class="section s1">
+			<img src="images/x1_03.png"  alt="">
+			</div>
+			<div class="section s2">
+				<img class="img1" src="images/01_03.png"  alt="">
+				<div class="pic">
+				<a href="upload/20141106133043.jpg" data-lightbox="road2"><img src="upload/20141106133043.jpg" alt=""></a>
+				<a href="upload/20141106133101.jpg" data-lightbox="road2"><img src="upload/20141106133101.jpg" alt=""></a>
+				<a href="upload/20141106133106.jpg" data-lightbox="road2"><img src="upload/20141106133106.jpg" alt=""></a>
+				<a href="upload/20141106133111.jpg" data-lightbox="road2"><img src="upload/20141106133111.jpg" alt=""></a>
+				</div>
+			</div>
+			<div class="section s3">
+				<img class="img2" src="images/02_03.png" alt="">
+				<div class="pic2">
+				<a href="upload/20141106133124.jpg" data-lightbox="road3"><img src="upload/20141106133124.jpg" alt=""></a>
+				<a href="upload/20141106133129.jpg.jpg" data-lightbox="road3"><img src="upload/20141106133129.jpg" alt=""></a>
+				<a href="upload/20141106133134.jpg" data-lightbox="road3"><img src="upload/20141106133134.jpg" alt=""></a>
+				<a href="upload/20141106133139.jpg" data-lightbox="road3"><img src="upload/20141106133139.jpg" alt=""></a>
+				<a href="upload/20141106133144.jpg" data-lightbox="road3"><img src="upload/20141106133144.jpg" alt=""></a>
+				<a href="upload/20141106133159.jpg" data-lightbox="road3"><img src="upload/20141106133159.jpg" alt=""></a>
+				</div>
+			</div>
+			<div class="section s4">
+			<img class="img3" src="images/03_03.png"  alt="">
+			<div class="pic3">
+				<a href="upload/20141106133207.jpg" data-lightbox="road4"><img src="upload/20141106133207.jpg" alt=""></a>
+				<a href="upload/20141106133212.jpg" data-lightbox="road4"><img src="upload/20141106133212.jpg" alt=""></a>
+				<a href="upload/20141106133218.jpg" data-lightbox="road4"><img src="upload/20141106133218.jpg" alt=""></a>
+				<a href="upload/20141106133224.jpg" data-lightbox="road4"><img src="upload/20141106133224.jpg" alt=""></a>
+			</div>
+			</div>
+			<div class="section s5">
+				<img class="img5" src="images/05_03.png" alt="">
+				<div class="pic5">
+				<a href="upload/20141106133231.jpg" data-lightbox="road5"><img src="upload/20141106133231.jpg" alt=""></a>
+				<a href="upload/20141106133248.jpg" data-lightbox="road5"><img src="upload/20141106133248.jpg" alt=""></a>	
+				</div>
+			</div>
+			<div class="section s6">
+				<img class="img6" src="images/06_03.png" alt="">
+				<div class="pic6">
+				 <a href="upload/20141106133256.jpg" data-lightbox="road6"><img src="upload/20141106133256.jpg" alt=""></a>
+				<a href="upload/20141106133301.jpg" data-lightbox="road6"><img src="upload/20141106133301.jpg" alt=""></a>
+				<a href="upload/20141106133305.jpg" data-lightbox="road6"><img src="upload/20141106133305.jpg" alt=""></a>
+				<a href="upload/20141106133309.jpg" data-lightbox="road6"><img src="upload/20141106133309.jpg" alt=""></a>
+				</div>
+			</div>
+			<div class="section s7">
+				<img class="img7" src="images/07_03.png" alt="">
+				<div class="pic7">
+					<h2>活动时间</h2>
+					<h2>12月15日至2月15日</h2>
+				</div>
+			</div>
+			<div class="section s8">
+				<div class="last">
+				<ul>
+					<li class="li1">公司简介</li>
+					<li class="li2">北京叠翠谷旅游开发有限公司全资开发建设的闲云山房项目，位于北京市怀柔区喇叭沟门原始森林自然保护区内，总占地面积3000亩，是集生态养殖、种植、餐饮、住宿、观光、会议、健康养生为一体的综合性度假区。拥有自然景观十多处，特色别墅30栋，餐厅1栋，多功能厅1栋。此生态区是北京仅有的非雾霾环境区域，是大自然赐予我们的天然大氧吧。</li>
+				</ul></div>
+				<img class="img81" src="images/08_03.png" alt="">
+				<img  class="img82" src="images/l1 (1).png" alt="">
+				<div class="text">
+					<p>联系人：张先生</p>
+					<p>联系电话：010-61670298</p>
+					<p>手机：010-13581784389</p>
+					<p>地址：北京市怀柔区喇叭沟门原始森林公园大门口</p>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery.fullPage.js"></script>
+		<script src="js/lightbox.js"></script>
+		<script>
+			$(function(){
+				$("#main").fullpage({
+					continuousVertical: true ,//回调函数，使图片无线循环
+					afterLoad: function(anchorLink, index){//当在第二屏时隐藏的h3从左边弹出
+						$(".yuan  a").attr("href","#page"+(index+1))//向下箭头
+						if(index==2){
+							$(".s2 .img1").css("left","200px")
+							$(".s2 .pic").css("bottom","70px")
+						}else if(index==3){
+							$(".s3 .img2").css("top","-150px")
+							$(".s3 .pic2").css("top","400px")
+						}else if(index==4){
+							$(".s4 .img3").css("left","450px")
+							$(".s4 .pic3").css("left","900px")
+						}else if(index==5){
+							$(".s5 .img5").css("right","250px")
+							$(".s5 .pic5").css("left","270px")
+						}else if(index==6){
+							$(".s6 .img6").css("left","700px")
+							$(".s6 .pic6").css("left","270px")
+						}
+						else if(index==7){
+							$(".s7 .img7").css("left","400px")
+							$(".s7 .pic7").css("top","0px")
+						}
+						else if(index==8){
+							$(".s8 .last").css("left","300px")
+							$(".s8 .img81").css("top","400px")
+							$(".s8 .text").css("right","210px")
+							$(".s8 .img82").css("top","120px")
+							$(".yuan img").attr("src","images/gdd_03.png")
+							$(".yuan a").attr("href","#page"+1)
+						}if(index==1){
+        					$(".top .logo").css("visibility","visible")
+        				}
+         					if(index>1){
+        					$(".top .logo").css("visibility","hidden")
+        				}
+					},
+					onLeave:function(index,direction){//当离开第二屏使h3也离开，并且再回第二屏h3再出现
+						if(index==2){
+							$(".s2 .img1").css("left","-200%")
+							$(".s2 .pic").css("bottom","-160px")
+						}else if(index==3){
+							$(".s3 .img2").css("top","470px")
+							$(".s3 .pic2").css("top","700px")
+						}else if(index==4){
+							$(".s4 .img3").css("left","-480px")
+							$(".s4 .pic3").css("left","-250px")
+						}else if(index==5){
+							$(".s5 .img5").css("right","-650px")
+							$(".s5 .pic5").css("left","-150px")	
+						}else if(index==6){
+							$(".s6 .img6").css("left","-650px")
+							$(".s6 .pic6").css("left","-250px")	
+						}else if(index==7){
+							$(".s7 .img7").css("left","-400px")
+							$(".s7 .pic7").css("top","600px")
+						}else if(index==8){
+							$(".s8 .last").css("left","-350px")
+							$(".s8 .img81").css("top","700px")
+							$(".s8 .text").css("right","-350px")
+							$(".s8 .img82").css("top","-320px")
+							$(".yuan img").attr("src","images/gd_03.png")
+						}
+					},
+					'navigation': true,//导航e,
+					 menu: '.topnav',//作为导航的元素
+					anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7', 'page8'],//导航链接锚点
+					'navigationTooltips':['首页','世外桃源','源生原味','星星作伴','创想意境','闲云圣景','活动','联系我们',]
+				})
+			})
+		</script>
+		
+	</body>
+</html>
